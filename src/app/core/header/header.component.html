@@ -1,0 +1,127 @@
+<div class="row">
+  <div class="col-md-12">
+    <nav class="navbar navbar-expand-lg hero-navbar">
+      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link"><i class="fab fa-facebook-f"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"><i class="fab fa-instagram"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"><i class="fab fa-twitter"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"><i class="fab fa-pinterest"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"><i class="fab fa-youtube"></i></a>
+          </li>
+        </ul>
+        <div class="my-2 my-lg-0">
+          <ul class="list-inline">  
+            <ng-template [ngIf]="!isAuthenticated()">
+              <li class="list-inline-item"><a routerLink="/signup">Register</a></li>
+              <li class="list-inline-item"><a routerLink="/signin">Login <i class="fas fa-arrow-right"></i></a></li>
+            </ng-template>
+
+            <li class="list-inline-item" *ngIf="isAuthenticated()"><a 
+              style="cursor: pointer;" 
+              (click)="onLogout()"
+              >Logout <i class="fas fa-sign-out-alt"></i></a></li>
+            <li class="dropdown list-inline-item" ngbDropdown *ngIf="isAuthenticated()">
+              <a style="cursor: pointer;" class="dropdown-toggle" id="navbarDropdown2" role="button" ngbDropdownToggle>Manage <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown2" ngbDropdownMenu>
+                <li class="dropdown-item"><a style="cursor: pointer;" (click)="onSaveData()">Save Data</a></li>
+                <li class="dropdown-item"><a style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 mx-auto logo">
+    <a routerLink="/"><img src="assets/images/logo-v3.png" style="max-height: 150px;"></a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+  
+    <nav class="navbar navbar-expand-lg global-navbar">
+      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link" routerLink="" >Recipes <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/shopping-list">Shopping List</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/recipes/new">+ Add Recipe</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li> -->
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input 
+            class="form-control mr-sm-2" 
+            type="search" 
+            placeholder="Search" 
+            aria-label="Search"
+            (change)="onChange($event)">
+        </form>
+      </div>
+    </nav>
+
+  </div>
+  
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- <div class="navbar-header">
+        <a routerLink="/" class="navbar-brand">Home</a>
+      </div> -->
+
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/">Recipes</a></li>
+          <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping List</a></li>
+        </ul>
+        <form class="navbar-form navbar-right" role="search">
+        
+          <div class="form-group">
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Search"
+              (change)="onChange($event)">
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </nav>
+</div>

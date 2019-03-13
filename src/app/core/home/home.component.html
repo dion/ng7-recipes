@@ -1,0 +1,76 @@
+<!-- <div class="row">
+  <div class="col-sm-12 col-md-12">
+    <h2>Welcome to the Recipe Book</h2>
+  </div>
+</div> -->
+
+<div class="row">
+  <div 
+    class="col-sm-6 col-md-4"
+    *ngFor="let recipe of recipes | filter:filteredSearch:'name'; let i = index">
+    <div class="card thumbnail">
+      <a (click)="onSelectRecipe(i)">
+        <img src="{{ recipe.imagePath }}" class="card-img-top" alt="{{ recipe.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ recipe.name }}</h5>
+          <p class="card-text">{{ recipe.description }}</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- [ngClass]="{ 'show': isModalOpen }"  -->
+<div 
+  class="modal"
+  (click)="onCloseModal()" 
+  [@divState]="isModalOpen"
+  >
+</div>
+<div class="card recipe-slider col-xs-12 col-md-4"
+  [@panelState]="panelState"
+  >
+  <div *ngIf="isModalOpen">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-8">
+          <h5>{{ recipe.name }}</h5>
+        </div>
+        <div class="col-4 text-right">
+          <a (click)="onCloseModal()"><i class="fas fa-times"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="col-md-12">
+      <figure class="figure">
+        <img src="{{ recipe.imagePath }}" class="figure-img img-fluid rounded" alt="{{ recipe.name }}">
+        <figcaption class="figure-caption">{{ recipe.description }}</figcaption>
+      </figure>
+    </div>
+
+      <div class="col-md-12">
+        <h5>Ingredients</h5>
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let ingredient of recipe.ingredients">
+            {{ ingredient.name }} - {{ ingredient.amount }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-12 mt-4">
+        <h5>Directions</h5>
+        <ol>
+          <li
+            *ngFor="let directions of recipe.directions">
+              {{ directions }}
+            </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div> -->

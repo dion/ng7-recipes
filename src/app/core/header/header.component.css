@@ -1,0 +1,41 @@
+.hero-navbar {
+  font-size: 0.8rem;
+  padding: 0.5rem 0rem;
+}
+.hero-navbar a {
+  color: #4f4f4d;
+}
+.hero-navbar .nav-link {
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+.hero-navbar .list-inline-item {
+  margin-right: 1rem;
+}
+
+.logo {
+  margin: 0px 0 25px;
+}
+.global-navbar {
+  border-top: 2px solid #f7f8f2;
+  border-bottom: 3px solid #f7f8f2;
+  margin: 0 -15px;
+}
+.global-navbar .nav-item {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.global-navbar .nav-link {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: #4f4f4d;
+}
+.global-navbar .active .nav-link {
+  color: #000;
+}
+
+.form-inline .form-control {
+  height: calc(2.05rem + 2px);
+  font-size: 0.9rem;
+  /*color: #ced4da;*/
+}

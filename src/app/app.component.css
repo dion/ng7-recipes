@@ -1,0 +1,11 @@
+.container {
+  background-color: #fff;
+  margin: 24px auto;
+  padding-top:5px;
+  padding-bottom: 5px;
+  border-radius: 9px;
+}
+.the-footer {
+  margin:20px 0 10px;
+  font-size:0.6rem;
+}
